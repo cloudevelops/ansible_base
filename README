@@ -1,0 +1,32 @@
+ansible_base
+
+This is the ansible_base module. Extends and wraps https://github.com/nvogel/puppet-ansible. Amongst the extensions, it autopopulates your Ansible
+inventory file. By default, hosts also sorted to foreman hostgroups, which gives additional orchestration value. Both ansible and ansible_base
+modules should be merged into one solution, please do so - #enotime
+
+Dependency
+-------
+
+Make sure https://github.com/nvogel/puppet-ansible and https://github.com/puppetlabs/puppetlabs-inifile installed in their recent versions
+
+Usage
+-------
+
+All infrastructure
+
+    include ansible_base
+
+Hiera setting for all infrastructure
+
+    {
+      "ansible_base::base_enabled": true,
+      "ansible_base::master": "orchestrator.somedomain.com"
+    }
+
+Hiera setting for Ansible master
+
+    {
+      "ansible_base::master_enabled": true
+    }
+
+Enjoy Puppet/Ansible converged configuration/orchestration infrastructure profit
